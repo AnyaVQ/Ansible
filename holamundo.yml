@@ -1,7 +1,7 @@
----
-- name: Hola mundo
-  hosts: all
+- hosts: localhost
+  gather_facts: no  # No es necesario recopilar hechos si solo queremos un mensaje simple
+
   tasks:
-  - name: Primer Hola mundo
-    ansible.builtin.debug:
-      msg: "Hola mundo"
+    - name: Imprimir un mensaje de "Hola Mundo"
+      debug:
+        msg: "¡Hola Mundo desde Ansible!"

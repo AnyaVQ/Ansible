@@ -1,0 +1,11 @@
+# Inventario para localhost
+[local]
+localhost ansible_connection=local
+
+# Inventario para las IPs específicas
+[routers]
+router1 ansible_host=172.31.23.125
+
+[routers:vars]
+ansible_connection=ssh
+
