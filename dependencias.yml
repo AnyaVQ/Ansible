@@ -1,16 +1,17 @@
 ---
-- name: Instalar un repositorio y dependencias
-  hosts: mi_servidor  # Aquí puedes poner el nombre de un grupo de hosts o la IP de un servidor remoto
-  become: true  # Necesario si se requiere permisos de superusuario (sudo)
-  tasks:
-    - name: Instalar repositorio EPEL (Extra Packages for Enterprise Linux)
-      ansible.builtin.apt:
-        name: epel-release
-        state: present
+- hosts: mi_servidor  # Indica a qué grupo de hosts se aplicará este playbook
+  become: true      # Permite ejecutar tareas con privilegios de superusuario (sudo)
 
-    - name: Instalar git y curl
-      ansible.builtin.apt:
-        name:
-          - git
-          - curl
-        state: present
+  tasks:
+    - name: Mostrar un mensaje
+      ansible.builtin.debug:
+        msg: "¡Hola desde Ansible!"
+
+    - name: Obtener información del sistema
+      ansible.builtin.shell:
+        cmd: "uname -a"
+      register: info_sistema
+
+    - name: Mostrar información del sistema
+      ansible.builtin.debug:
+        msg: "Información del sistema: {{ info_sistema.stdout }}"
