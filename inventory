@@ -1,11 +1,6 @@
-# Inventario para localhost
-[local]
-localhost ansible_connection=local
-
-# Inventario para las IPs específicas
-[routers]
-router1 ansible_host=172.31.23.125
-
-[routers:vars]
-ansible_connection=ssh
-
+[Routers]
+vIOS1 ansible_host=192.168.0.104
+vIOS2 ansible_host=192.168.0.109
+[Routers:vars]
+ansible_connection=ansible.netcommon.network_cli
+ansible_network_os=cisco.ios.ios
