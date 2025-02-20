@@ -1,15 +1,10 @@
 ---
-- hosts: Routers
-  gather_facts: no
-
-
+- name: Hola Mundo con Ansible
+  hosts: mi_servidor  # Esto significa que se ejecutará en tu máquina local
+  become: true
   tasks:
-    - name: REGISTER VTY CONFIG ON DEVICE
-      ios_command:
-        commands:
-          - show version
-          - show ip int brief
-      register: vty
-  
-    - debug: var=vty.stdout_lines
+    - name: Mostrar un mensaje de Hola Mundo
+      ansible.builtin.debug:
+        msg: "¡Hola Mundo desde Ansible!"
+
 
