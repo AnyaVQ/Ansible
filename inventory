@@ -1,6 +1,3 @@
-[Routers]
-vIOS1 ansible_host=192.168.0.104
-vIOS2 ansible_host=192.168.0.109
-[Routers:vars]
-ansible_connection=ansible.netcommon.network_cli
-ansible_network_os=cisco.ios.ios
+[mi_servidor]
+ansible_host=192.168.1.3
+
