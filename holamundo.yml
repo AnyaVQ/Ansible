@@ -1,7 +1,15 @@
-- hosts: localhost
-  gather_facts: no  # No es necesario recopilar hechos si solo queremos un mensaje simple
+---
+- hosts: Routers
+  gather_facts: no
+
 
   tasks:
-    - name: Imprimir un mensaje de "Hola Mundo"
-      debug:
-        msg: "¡Hola Mundo desde Ansible!"
+  - name: REGISTER VTY CONFIG ON DEVICE
+    ios_command:
+      commands:
+        - show version
+        - show ip int brief
+    register: vty
+
+  - debug: var=vty.stdout_lines
+
