@@ -4,12 +4,12 @@
   become: true  # Necesario si se requiere permisos de superusuario (sudo)
   tasks:
     - name: Instalar repositorio EPEL (Extra Packages for Enterprise Linux)
-      ansible.builtin.yum:
+      ansible.builtin.apt:
         name: epel-release
         state: present
 
     - name: Instalar git y curl
-      ansible.builtin.yum:
+      ansible.builtin.apt:
         name:
           - git
           - curl
