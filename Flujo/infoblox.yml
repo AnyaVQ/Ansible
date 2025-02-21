@@ -4,11 +4,12 @@
   tasks:
     - name: Añadir un registro A en Infoblox
       infoblox_dns:
-        hostname: "mi_servidor"
-        ip: "192.168.1.11"
+        hostname: "myserver"
+        ip: "192.168.1.10"
         zone: "example.com"
         record_type: "A"
         state: "present"
         server: "infoblox.example.com"
         username: "admin"
         password: "password"
+
