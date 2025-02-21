@@ -6,7 +6,7 @@
       ansible.builtin.shell:
         cmd: "uname -a"
       register: info_sistema
-      
-    - name: Mostrar la información del sistema
+
+    - name: Mostrar información del sistema
       ansible.builtin.debug:
-        msg: "Información del sistema: {{ ansible_facts['distribution']}}, {{ ansible_facts['version'] }}"
+        msg: "Información del sistema: {{ info_sistema.stdout }}"
