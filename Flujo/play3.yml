@@ -9,7 +9,7 @@
         update_cache: yes
 
     - name: Asegurarse de que nginx esté corriendo
-      ansible.builtin.systemd:
+      ansible.builtin.service:
         name: nginx
         state: started
-        enabled: yes
+        enabled: true
