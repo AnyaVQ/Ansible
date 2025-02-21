@@ -1,0 +1,10 @@
+---
+- name: Mostrar información del sistema
+  hosts: mi_servidor
+  tasks:
+    - name: Obtener información del sistema
+      ansible.builtin.facts:
+      
+    - name: Mostrar la información del sistema
+      ansible.builtin.debug:
+        msg: "Información del sistema: {{ ansible_facts['distribution']}}, {{ ansible_facts['version'] }}"
