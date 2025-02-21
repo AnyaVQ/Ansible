@@ -3,7 +3,9 @@
   hosts: mi_servidor
   tasks:
     - name: Obtener información del sistema
-      ansible.builtin.facts:
+      ansible.builtin.shell:
+        cmd: "uname -a"
+      register: info_sistema
       
     - name: Mostrar la información del sistema
       ansible.builtin.debug:
