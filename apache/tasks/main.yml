@@ -1,0 +1,11 @@
+---
+- name: Instalar Apache
+  apt:
+    name: "{{ apache_package }}"
+    state: present
+
+- name: Copiar archivo de configuración
+  template:
+    src: /path/to/template.j2
+    dest: /etc/apache2/sites-available/000-default.conf
+  notify: Reiniciar Apache
