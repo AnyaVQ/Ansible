@@ -1,0 +1,15 @@
+- name: Crear un nuevo registro DNS en Infoblox
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Añadir un registro A en Infoblox
+      infoblox_dns:
+        hostname: "myserver"
+        ip: "192.168.1.10"
+        zone: "example.com"
+        record_type: "A"
+        state: "present"
+        server: "infoblox.example.com"
+        username: "admin"
+        password: "password"
+

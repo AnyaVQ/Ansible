@@ -1,0 +1,12 @@
+---
+- name: Mostrar información del sistema
+  hosts: mi_servidor
+  tasks:
+    - name: Obtener información del sistema
+      ansible.builtin.shell:
+        cmd: "uname -a"
+      register: info_sistema
+
+    - name: Mostrar información del sistema
+      ansible.builtin.debug:
+        msg: "Información del sistema: {{ info_sistema.stdout }}"

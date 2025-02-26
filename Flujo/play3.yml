@@ -1,0 +1,15 @@
+- name: Instalar y asegurar que nginx esté corriendo
+  hosts: mi_servidor
+  become: true
+  tasks:
+    - name: Instalar nginx si no está instalado
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: Asegurarse de que nginx esté corriendo
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true

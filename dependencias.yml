@@ -1,0 +1,17 @@
+---
+- hosts: mi_servidor  # Indica a qué grupo de hosts se aplicará este playbook
+  become: true      # Permite ejecutar tareas con privilegios de superusuario (sudo)
+
+  tasks:
+    - name: Mostrar un mensaje
+      ansible.builtin.debug:
+        msg: "¡Hola desde Ansible!"
+
+    - name: Obtener información del sistema
+      ansible.builtin.shell:
+        cmd: "uname -a"
+      register: info_sistema
+
+    - name: Mostrar información del sistema
+      ansible.builtin.debug:
+        msg: "Información del sistema: {{ info_sistema.stdout }}"
