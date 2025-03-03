@@ -1,0 +1,6 @@
+# defaults/main.yml
+
+ssh_key_name: "id_rsa"
+ssh_key_dir: "/home/{{ ansible_user }}/.ssh"
+
+

@@ -1,0 +1,31 @@
+# tasks/main.yml
+
+- name: Crear el directorio .ssh en el home del usuario (si no existe)
+  file:
+    path: "{{ ssh_key_dir }}"
+    state: directory
+    mode: '0700'
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+
+- name: Generar par de llaves SSH
+  openssh_keypair:
+    path: "{{ ssh_key_dir }}/{{ ssh_key_name }}"
+    size: 2048
+    type: rsa
+    force: false
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: '0600'
+  register: ssh_key
+
+- name: Mostrar la clave pública generada
+  debug:
+    msg: "La clave pública generada es: {{ ssh_key.public_key }}"
+
+- name: Agregar la clave pública al archivo authorized_keys
+  authorized_key:
+    user: "{{ ansible_user }}"
+    state: present
+    key: "{{ ssh_key.public_key }}"
+    path: "{{ ssh_key_dir }}/authorized_keys"
