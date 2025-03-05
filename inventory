@@ -1,3 +1,3 @@
 [mi_servidor]
-192.168.1.11 ansible_ssh_port=2222 ansible_ssh_user=root ansible_ssh_private_key_file=/home/student/.ssh/id_ed25519 ansible_python_interpreter=/usr/bin/python3
+192.168.97.69 ansible_ssh_port=22 ansible_ssh_user=student ansible_ssh_private_key_file=/home/student/.ssh/id_ed25519 ansible_python_interpreter=/usr/bin/python3
 
