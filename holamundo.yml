@@ -1,6 +1,6 @@
 ---
 - name: Hola Mundo con Ansible
-  hosts: mi_servidor  # Esto significa que se ejecutará en tu máquina local
+  hosts: all # Esto significa que se ejecutará en tu máquina local
   become: true
   tasks:
     - name: Mostrar un mensaje de Hola Mundo
